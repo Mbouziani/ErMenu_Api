@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ErMenu.Api/ErMenu.Api.csproj" />
+    <Project Path="src/ErMenu.Application/ErMenu.Application.csproj" />
+    <Project Path="src/ErMenu.Domain/ErMenu.Domain.csproj" />
+    <Project Path="src/ErMenu.Infrastructure/ErMenu.Infrastructure.csproj" />
+  </Folder>
+</Solution>
