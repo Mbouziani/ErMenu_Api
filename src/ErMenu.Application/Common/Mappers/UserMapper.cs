@@ -13,10 +13,7 @@ public static class UserMapper
         return new UserProfileDto
         {
             Id = user.Id,
-            FirstName = user.FirstName,
-            LastName = user.LastName,
-            Email = user.Email,
-            PhoneNumber = user.PhoneNumber ?? ""
+            FullName = user.FullName, 
         };
     }
 
@@ -29,8 +26,7 @@ public static class UserMapper
         return new ActorDto
         {
             Id = user.Id,
-            FirstName = user.FirstName,
-            LastName = user.LastName, 
+            FullName = user.FullName, 
         };
     }
 

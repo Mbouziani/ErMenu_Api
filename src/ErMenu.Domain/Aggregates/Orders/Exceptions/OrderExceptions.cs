@@ -6,4 +6,8 @@ public class OrderExceptions
 {
     public static NotFoundException OrderNotFound()
         => new(OrderErrorCodes.OrderNotFound, "Order not found");
+
+
+    public static BadRequestException FailedToCreateOrder()
+        => new(OrderErrorCodes.FailedToCreateOrder, "Failed to create order");
 }

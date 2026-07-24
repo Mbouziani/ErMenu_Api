@@ -5,5 +5,5 @@ namespace ErMenu.Application.Features.Orders.Commands.CreateOrder;
 
 
 
-public sealed record class CreateOrderCommand(List<OrderLineCommand> Lines) 
-    : IRequest<Result<int>>;
+public sealed record class CreateOrderCommand(OrderDto Order) 
+    : IRequest<Result<string>>;

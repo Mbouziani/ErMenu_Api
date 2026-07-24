@@ -11,8 +11,7 @@ builder.Services.AddInfrastructureServices(builder.Configuration);
 var app = builder.Build();
 
 // OpenAPI
-if (app.Environment.IsDevelopment())
-    app.MapOpenApi(); //https://localhost:7013/openapi/v1.json
+app.MapOpenApi(); //https://localhost:7013/openapi/v1.json
 
 
 

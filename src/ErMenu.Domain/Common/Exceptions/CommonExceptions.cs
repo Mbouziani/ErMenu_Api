@@ -104,5 +104,8 @@ public static class CommonExceptions
         => new(CommonErrorCodes.OnlyImagesAllowed, "Only image files are allowed");
 
     #endregion
- 
+
+    public static BadRequestException YourTrialPeriodHasExpired()
+   => new(CommonErrorCodes.YourTrialPeriodHasExpired, "Your trial period has expired. Please contact the developer to activate your license.");
+
 }

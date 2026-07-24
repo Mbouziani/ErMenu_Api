@@ -4,17 +4,13 @@ public class User
 {
     private User() { }
 
-
+    
     public int Id { get; private set; }
-    public string FirstName { get; private set; } = null!;
-    public string LastName { get; private set; } = null!;
-    public string Email { get; private set; } = null!;
-    public string? PhoneNumber { get; private set; }
+    public int BranchID { get; private set; }
+    public string FullName { get; private set; } = string.Empty; 
 
     public string PasswordHash { get; private set; } = null!;
 
-    public ICollection<RefreshToken> RefreshTokens { get; private set; } = [];
-
-
+    public ICollection<RefreshToken> RefreshTokens { get; } = [];
 
 }

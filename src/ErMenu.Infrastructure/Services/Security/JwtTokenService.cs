@@ -45,8 +45,8 @@ public class JwtTokenService(IOptions<TokenSettingsDto> tokenSettingsDto) : IJwt
         var claims = new List<Claim>
         {
             new(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new(ClaimTypes.Email, user.Email),
-            new(ClaimTypes.Name, user.FirstName + " " + user.LastName),
+            new("BranchId", user.BranchID.ToString()),
+            new(ClaimTypes.Name, user.FullName),
         };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_settings.Key));

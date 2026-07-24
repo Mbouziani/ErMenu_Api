@@ -1,10 +1,11 @@
-﻿using ErMenu.Application.Common.DTOs.Auth;
+﻿using ErMenu.Application.Common.Behaviors;
+using ErMenu.Application.Common.DTOs.Auth;
 using ErMenu.Application.Common.Interfaces;
 using ErMenu.Application.Common.Interfaces.Security;
 using ErMenu.Application.Common.Models.BaseResult; 
-using ErMenu.Domain.Aggregates.Users.Repositories;
-using ErMenu.Domain.Aggregates.Users.Exceptions;
 using ErMenu.Domain.Aggregates.Users.Entities; 
+using ErMenu.Domain.Aggregates.Users.Exceptions;
+using ErMenu.Domain.Aggregates.Users.Repositories;
 using MediatR; 
 
 namespace ErMenu.Application.Features.Users.Commands.Auth.Login;
@@ -21,13 +22,16 @@ internal class LoginCommandHandler(
         LoginCommand request,
         CancellationToken cancellationToken)
     {
-        var user = await userRepository.GetByEmailAsync(request.Email, cancellationToken)
+        LicenseBehavior.EnsureLicense();
+
+        var user = await userRepository.GetByIdAsync(request.Id, cancellationToken)
             ?? throw UserExceptions.InvalidLoginCredentials();
 
         var isValid = passwordService.Verify(request.Password, user.PasswordHash);
 
         if (!isValid)
-            throw UserExceptions.InvalidLoginCredentials();
+            throw UserExceptions.InvalidLoginCredentials(); 
+
 
         var tokens = jwtTokenService.GenerateLoginTokens(user);
 

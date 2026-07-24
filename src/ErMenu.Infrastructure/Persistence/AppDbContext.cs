@@ -1,6 +1,5 @@
 ﻿
 using ErMenu.Application.Common.Interfaces;
-using ErMenu.Domain.Aggregates.Orders.Entities;
 using ErMenu.Domain.Aggregates.Products.Entities;
 using ErMenu.Domain.Aggregates.Users.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -14,12 +13,15 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<User> Users => Set<User>();
     public DbSet<RefreshToken> RefreshTokens => Set<RefreshToken>();
 
-
-    public DbSet<Order> Orders => Set<Order>();
-    public DbSet<OrderLine> OrderLines => Set<OrderLine>();
-
     public DbSet<Product> Products => Set<Product>();
     public DbSet<Category> ProductCategories => Set<Category>();
+    public DbSet<ProductOffer> ProductOffers => Set<ProductOffer>();
+    public DbSet<ProductOfferDetail> ProductOfferDetails => Set<ProductOfferDetail>();
+
+
+    
+
+
 
 
 

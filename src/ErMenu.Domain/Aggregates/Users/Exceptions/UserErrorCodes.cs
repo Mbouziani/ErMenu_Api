@@ -34,9 +34,12 @@ public static class UserErrorCodes
     public const string UserAlreadyLocked = "USER_ALREADY_LOCKED";
     public const string UserIsInactive = "USER_IS_INACTIVE";
     public const string MissingUserIdClaim = "USER_MISSING_USER_ID_CLAIM";
-    public const string MissingBranchClaim = "USER_MISSING_BRANCH_CLAIM";
+    public const string MissingBranchIdClaim = "USER_MISSING_BRANCH_ID_CLAIM";
     public const string MissingRoleClaim = "USER_MISSING_ROLE_CLAIM";
     public const string BadAdminSeeding = "USER_BAD_ADMIN_SEEDING";
+    public const string ProblemOccurredWhileInsertingUserSession = "USER_PROBLEM_OCCURRED_WHILE_INSERTING_USER_SESSION";
+    public const string YourTrialPeriodHasExpired = "YOUR_TRIAL_PERIOD_HAS_EXPIRED";
+
 
     public const string AccountUnavailable = "USER_ACCOUNT_UNAVAILABLE";
     public const string AccountInactive = "USER_ACCOUNT_INACTIVE";

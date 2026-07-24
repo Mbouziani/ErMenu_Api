@@ -39,7 +39,7 @@ internal class RefreshTokensCommandHandler(
             newHashedRefreshToken,
             newTokens.RefreshTokenExpiresAt);
 
-        await refreshTokenRepository.AddAsync(session, cancellationToken); 
+        await refreshTokenRepository.AddAsync(newSession, cancellationToken); 
 
         await unitOfWork.SaveChangesAsync(cancellationToken);
 

@@ -14,6 +14,10 @@ public class CurrentActor(IHttpContextAccessor accessor) : ICurrentActor
             ? id
             : throw UserExceptions.MissingUserIdClaim();
 
+    public int BranchId =>
+        int.Parse(User?.FindFirst("BranchId")?.Value
+            ?? throw UserExceptions.MissingBranchIdClaim());
+
     public string? Email =>
         User?.FindFirst(ClaimTypes.Email)?.Value;
 

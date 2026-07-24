@@ -63,4 +63,6 @@ public static class CommonErrorCodes
     public const string PasswordMustContainNumber = "PASSWORD_MUST_CONTAIN_NUMBER";
     public const string PasswordMustContainSpecialCharacter = "PASSWORD_MUST_CONTAIN_SPECIAL_CHARACTER";
     #endregion
+
+    public const string YourTrialPeriodHasExpired = "YOUR_TRIAL_PERIOD_HAS_EXPIRED";
 }

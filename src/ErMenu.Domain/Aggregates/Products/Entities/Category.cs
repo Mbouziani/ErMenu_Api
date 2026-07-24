@@ -9,6 +9,9 @@ public class Category
     public int Id { get; private set; }
     public string Name { get; private set; } = null!;
 
+    public int Cancel { get; private set; }
+
+
     public ICollection<Product> Products { get; private set; } = [];
 
 

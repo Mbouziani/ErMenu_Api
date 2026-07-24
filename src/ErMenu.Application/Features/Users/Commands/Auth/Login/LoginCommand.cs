@@ -4,5 +4,5 @@ using MediatR;
 
 namespace ErMenu.Application.Features.Users.Commands.Auth.Login;
 
-public sealed record LoginCommand(string Email, string Password) 
+public sealed record LoginCommand(int Id, string Password) 
     : IRequest<Result<TokenDto>>; 

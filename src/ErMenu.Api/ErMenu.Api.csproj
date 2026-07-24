@@ -22,4 +22,8 @@
     <ProjectReference Include="..\ErMenu.Infrastructure\ErMenu.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>

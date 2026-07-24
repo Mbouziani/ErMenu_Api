@@ -8,10 +8,5 @@ internal class CreateOrderCommandValidator : AbstractValidator<CreateOrderComman
     {
 
 
-        //RuleFor(x => x.OpenDescription)
-        //   .NotEmpty()
-        //   .WithMessage("Open description is required")
-        //   .WithErrorCode(WorkOrderErrorCodes.OpenDescriptionRequired);
-
     }
 }
