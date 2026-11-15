@@ -99,19 +99,26 @@ public class Sales_SalesInvoiceMaster
 
    
     public static Sales_SalesInvoiceMaster Create(
-      int branchId,
-      int methodeId,
-      double cardPaymentAmount,
-      decimal netAmount,
-      decimal taxAmount,
-      decimal totalAmount,
-      decimal totalDiscount,
+
       int userId,
       int sessionId,
+      int branchId,
+      int methodeId,
+      decimal netBalance,
+      double netAmount,
+      decimal descount,
+      decimal additionaAmountTotal,
+      decimal invoiceTotal,
     List<Sales_SalesInvoiceDetails> saleDetails)
     {
         return new Sales_SalesInvoiceMaster
         {
+            NetAmount = netAmount,
+            AdditionaAmountTotal = additionaAmountTotal,
+            InvoiceTotal = invoiceTotal,
+            Descount = descount,
+            NetBalance = netBalance,
+
             TypeAccount = 1,
             InvoiceID = 1,
             InvoiceCode = 1,
@@ -123,7 +130,7 @@ public class Sales_SalesInvoiceMaster
             InvoiceDate = DateTime.Now.ToString("yyyyMMdd"),
             LastPrintDate = DateTime.Now.ToString("yyyyMMdd"),
             MethodeID = methodeId,
-            CustomerID = 1,
+            CustomerID = 0,
             CurencyID = 13,
             PrintCount = 0,
             CostCenterID = 1,
@@ -172,31 +179,24 @@ public class Sales_SalesInvoiceMaster
             PateintID = 0,
             TempInvoiceID = 0,
             EnduranceRatio = 0,
-            NetAmount = cardPaymentAmount,
             NetAccount = 12020000001,
             RegistrationNo = 0,
             VATID = "0",
             NetType = 1,
-            AdditionaAmountTotal = taxAmount,
-            InvoiceTotal = netAmount,
             InsuranceAmmount = 0,
             CostCenterName = "",
             StoreName = "",
             CustomerName = "",
             Total = 0,
             Vat = 0,
-            Descount = totalDiscount,
             Net = 0,
             SaleMethod = "",
-            NetBalance = totalAmount,//------------------
             OperationTypeName = "",
             RemaindAmount = 0,
             PaidAmount = 0,
             LenID = 0,
             BrandID = branchId,
             SaleDatails = saleDetails,
-           
-            
         };
     }
 

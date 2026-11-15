@@ -57,16 +57,27 @@ public class Sales_SalesInvoiceDetails
         int sizeId,
         int branchId,
         string barcode,
+        string additionalInfo,
         decimal quantity,
-        decimal unitPriceNet,
-        decimal taxAmount,
-        decimal NetAmount,
-        decimal totalAmount,
-        decimal totalDiscount,
-        string additionalInfo = "")
+        decimal salePrice,
+        decimal total,
+
+        decimal discount,
+        decimal net,
+        decimal additionalValue
+        )
     {
         return new Sales_SalesInvoiceDetails
         {
+
+
+            QTY = quantity,
+            SalePrice = salePrice,
+            Total = total,
+            Discount = discount,
+            AdditionalValue = additionalValue,
+            Net = net,
+
 
             ID = 0,
             ItemID = itemId,
@@ -77,7 +88,6 @@ public class Sales_SalesInvoiceDetails
             SizeID = sizeId,
             ArbSizeName = "",
             EngSizeName = "",
-            QTY = quantity,
             AdditionalName = additionalInfo,
             PackingQty = 1,
             Bones = 0,
@@ -85,14 +95,9 @@ public class Sales_SalesInvoiceDetails
             Width = 0,
             TheCount = 1,
             Serials = "",
-            SalePrice = unitPriceNet,
             CostPrice = 0,
             Equivalen = 0,
             Caliber = 0,
-            Total = NetAmount,
-            Discount = totalDiscount,
-            AdditionalValue = taxAmount,
-            Net = totalAmount,
             BAGET_W = 0,
             STONE_W = 0,
             DIAMOND_W = 0,
@@ -105,9 +110,7 @@ public class Sales_SalesInvoiceDetails
             ExpiryDateStr = 20240101,
             RemainQty = 0,
             ItemImage = [],
-            BranchID= branchId
-
-            
+            BranchID= branchId,
         };
 
     } 

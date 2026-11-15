@@ -19,7 +19,6 @@ internal class CreateOrderCommandHandler(
 {
     public async Task<Result<string>> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
     {
-        LicenseBehavior.EnsureLicense();
 
         int? sessionId = await userRepository.GetCurrentSessionIdAsync(currentActor.UserId, cancellationToken);
 
@@ -51,32 +50,39 @@ internal class CreateOrderCommandHandler(
 
         List<Sales_SalesInvoiceDetails> saleDetails = [.. request.Order.Lines.Select(line =>
             Sales_SalesInvoiceDetails.Create(
-                line.ProductId,
-                line.SizeId,
-                currentActor.BranchId,
-                line.Barecode,
-                line.Quantity,
-                line.NetUnitPrice,
-                line.TaxAmount,
-                line.NetAmount,
-                line.TotalAmount,
-                line.DiscountAmount,
-                line.AdditionalInfo
+                itemId: line.ProductId,
+                sizeId: line.SizeId,
+                branchId: currentActor.BranchId,
+                barcode: line.Barecode,
+                additionalInfo: line.AdditionalInfo,
+                quantity: line.Quantity, 
+
+                salePrice: line.OneUnitAmountBeforeVat,
+                total: line.TotalAmountBeforeVat,
+                discount: line.DiscountAmount,
+                net: line.TotalAmount,
+                additionalValue: line.TaxAmount
             ))];
 
 
 
         var order = Sales_SalesInvoiceMaster.Create(
-            currentActor.BranchId,
-            request.Order.MethodId,
-            request.Order.CardPaymentAmount,
-            request.Order.NetAmount,
-            request.Order.TaxAmount,
-            request.Order.TotalAmount,
-            request.Order.DiscountAmount,
-            currentActor.UserId,
-            sessionId ?? throw UserExceptions.ProblemOccurredWhileInsertingUserSession(),
-            saleDetails
+            userId: currentActor.UserId,
+            sessionId: sessionId ?? throw UserExceptions.ProblemOccurredWhileInsertingUserSession(),
+
+            branchId: currentActor.BranchId,
+            methodeId: request.Order.MethodId,
+
+            saleDetails: saleDetails,
+
+
+            netBalance: request.Order.TotalAmount,
+            netAmount: request.Order.CardPaymentAmount,
+            descount: request.Order.DiscountAmount,
+            additionaAmountTotal: request.Order.TaxAmount,
+            invoiceTotal: request.Order.TotalAmountBeforeVat
+
+
             );
 
 

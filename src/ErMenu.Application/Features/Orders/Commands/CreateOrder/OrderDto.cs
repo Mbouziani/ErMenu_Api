@@ -2,13 +2,15 @@
 
 public class OrderDto
 {
-    public decimal NetAmount { get; set; } 
+    public decimal TotalAmountBeforeVat { get; set; }
 
-    public decimal TaxAmount { get; set; }
-
-    public decimal TotalAmount { get; set; }
     public decimal DiscountAmount { get; set; }
 
+    public decimal NetAmountAfterDiscount  { get; set; }
+
+    public decimal TaxAmount { get; set; }
+     
+    public decimal TotalAmount { get; set; }
 
     public double CardPaymentAmount { get; set; } 
 
@@ -17,5 +19,5 @@ public class OrderDto
 
 
     public List<OrderLineDto> Lines { get; set; } = [];
-
+ 
 }

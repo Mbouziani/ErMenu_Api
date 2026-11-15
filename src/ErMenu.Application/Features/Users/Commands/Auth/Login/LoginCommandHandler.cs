@@ -22,7 +22,6 @@ internal class LoginCommandHandler(
         LoginCommand request,
         CancellationToken cancellationToken)
     {
-        LicenseBehavior.EnsureLicense();
 
         var user = await userRepository.GetByIdAsync(request.Id, cancellationToken)
             ?? throw UserExceptions.InvalidLoginCredentials();

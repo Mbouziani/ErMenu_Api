@@ -20,7 +20,6 @@ internal class GetAppLandingQueryHandler(
         GetAppLandingQuery request,
         CancellationToken cancellationToken)
     {
-        LicenseBehavior.EnsureLicense();
 
         var user = await userRepository.GetByIdAsync(currentActor.UserId, cancellationToken)
             ?? throw UserExceptions.AccountUnavailable();
